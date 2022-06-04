@@ -28,19 +28,20 @@ namespace EmployeeWageComputation
         {
             Random random = new Random();
             int check = random.Next(0,3);
-            
-            if (check == IS_FULL_DAY_PRESENT)
+
+            switch (check)
             {
-                empHrs = FULL_DAY_HR;
+                case IS_FULL_DAY_PRESENT:
+                    empHrs = FULL_DAY_HR;
+                    break;
+                case IS_PART_TIME_PRESENT:
+                    empHrs = PART_TIME_HR;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
             }
-            else if (check == IS_PART_TIME_PRESENT)
-            {
-                empHrs = PART_TIME_HR;
-            }
-            else
-            {
-                empHrs = 0;
-            }
+           
             totalEmpWage = empHrs * WAGE_PER_HR;
             Console.WriteLine("Total Wage Of Employee is {0}", totalEmpWage);
         }
