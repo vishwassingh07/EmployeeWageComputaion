@@ -9,8 +9,8 @@ namespace EmployeeWageComputation
     public class WageComputation
     {
         const int IS_PRESENT = 0,WAGE_PER_HR = 20, FULL_DAY_HR = 8,PART_TIME_HR = 4,
-        IS_FULL_DAY_PRESENT = 0, IS_PART_TIME_PRESENT = 1;
-        int empHrs, totalEmpWage;
+        IS_FULL_DAY_PRESENT = 0, IS_PART_TIME_PRESENT = 1, WORKING_DAYS_A_MONTH = 20;
+        int empHrs, totalEmpWage, empWage;
         public void EmployeeAttendence()
         {
             Random random = new Random();
@@ -26,24 +26,31 @@ namespace EmployeeWageComputation
         }
         public void EmpWageCalculation()
         {
-            Random random = new Random();
-            int check = random.Next(0,3);
-
-            switch (check)
+            for (int day = 0; day <= WORKING_DAYS_A_MONTH; day++)
             {
-                case IS_FULL_DAY_PRESENT:
-                    empHrs = FULL_DAY_HR;
-                    break;
-                case IS_PART_TIME_PRESENT:
-                    empHrs = PART_TIME_HR;
-                    break;
-                default:
-                    empHrs = 0;
-                    break;
+
+                Random random = new Random();
+                int check = random.Next(0, 3);
+
+                switch (check)
+                {
+                    case IS_FULL_DAY_PRESENT:
+                        empHrs = FULL_DAY_HR;
+                        break;
+                    case IS_PART_TIME_PRESENT:
+                        empHrs = PART_TIME_HR;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                empWage = empHrs * WAGE_PER_HR;
+                totalEmpWage += empWage;
+                Console.WriteLine(empWage);
             }
-           
-            totalEmpWage = empHrs * WAGE_PER_HR;
             Console.WriteLine("Total Wage Of Employee is {0}", totalEmpWage);
+
+
         }
     }
 }
