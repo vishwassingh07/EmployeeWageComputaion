@@ -21,7 +21,7 @@ namespace EmployeeWageComputation
             }
             else
             {
-                Console.WriteLine("Employee is Not Present");
+                Console.WriteLine("Employee is Not Present ");
             }
         }
         public void EmpWageCalculation()
