@@ -29,7 +29,7 @@ namespace EmployeeWageComputation
             Comapnies.Add(COMPANY_NAME.ToLower(), company);
             //CompanyList[ArrayIndex] = COMPANY_NAME;
             CompanyList.Add(COMPANY_NAME);
-            //CompanyList.Add(WAGE_PER_HR * FULL_DAY_HR);
+            CompanyList.Add(WAGE_PER_HR * FULL_DAY_HR);
             ArrayListIndex++;
         }
         public void EmployeeAttendence()
@@ -84,9 +84,9 @@ namespace EmployeeWageComputation
         }
         public void DisplayWage()
         {
-            for(int i = 0; i < CompanyList.Count; i += 2)
+            for(int i = 0; i < CompanyList.Count; i += 3)
             {
-                Console.WriteLine("Monthly Wage for {0} is {1} ", CompanyList[i], CompanyList[i + 1]);
+                Console.WriteLine("Monthly Wage for {0} with\n Daily Wage = {1} is {2}\n", CompanyList[i], CompanyList[i + 1], CompanyList[i + 2]);
             }
         }
     }
