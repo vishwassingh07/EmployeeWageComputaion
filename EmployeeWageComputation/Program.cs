@@ -12,7 +12,7 @@ namespace EmployeeWageComputation
             empwagecomputation.AddCompany("Reliance", 20, 8, 4, 100, 20);
             empwagecomputation.AddCompany("Tata", 20, 8, 4, 100, 20);
             empwagecomputation.EmpWageCalculation("reliance");
-            //empwagecomputation.EmpWageCalculation("tata");
+            empwagecomputation.EmpWageCalculation("tata");
 
 
         }

@@ -33,6 +33,7 @@ namespace EmployeeWageComputation
         }
         public void EmpWageCalculation(string COMPANY_NAME)
         {
+            int monthlyWage = 0;
             if (!Comapnies.ContainsKey(COMPANY_NAME.ToLower()))
                 throw new ArgumentNullException("Company doesn't exist ");
             Comapnies.TryGetValue(COMPANY_NAME.ToLower(), out Company company);
@@ -55,11 +56,14 @@ namespace EmployeeWageComputation
                         break;
                 }
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Day : {0}  Emp Hours : {1}", day, empHrs);
+                //Console.WriteLine("Day : {0}  Emp Hours : {1}", day, empHrs);
+                int totalEmpWage = totalEmpHrs * WAGE_PER_HR;
+                monthlyWage += totalEmpWage;
+
             }
-            int totalEmpWage = totalEmpHrs * WAGE_PER_HR;
-            Console.WriteLine("\nCompany Name : " + COMPANY_NAME);
-            Console.WriteLine("Total Wage Of Employee is {0}", totalEmpWage);
+            
+            //Console.WriteLine("\nCompany Name : " + COMPANY_NAME);
+            Console.WriteLine("Monthly Wage Of Employee in {0} is {1}", COMPANY_NAME, monthlyWage);
 
 
         }
