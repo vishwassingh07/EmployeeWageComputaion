@@ -28,7 +28,7 @@ namespace EmployeeWageComputation
             Company company = new Company(COMPANY_NAME.ToLower(), EMP_WAGE_PER_HR, FULL_DAY_HR, PART_TIME_HR, MAX_WORKING_HR, WORKING_DAYS_A_MONTH);
             Comapnies.Add(COMPANY_NAME.ToLower(), company);
             //CompanyList[ArrayIndex] = COMPANY_NAME;
-            CompanyList.Add(COMPANY_NAME);
+            CompanyList.Add(COMPANY_NAME.ToLower());
             CompanyList.Add(WAGE_PER_HR * FULL_DAY_HR);
             ArrayListIndex++;
         }
@@ -82,12 +82,18 @@ namespace EmployeeWageComputation
             ArrayListIndex++;
             //Console.WriteLine("Monthly Wage Of Employee in {0} is {1}", COMPANY_NAME, monthlyWage);
         }
-        public void DisplayWage()
+        //public void DisplayWage()
+        //{
+        //    for(int i = 0; i < CompanyList.Count; i += 3)
+        //    {
+        //        Console.WriteLine("Monthly Wage for {0} with\n Daily Wage = {1} is {2}\n", CompanyList[i], CompanyList[i + 1], CompanyList[i + 2]);
+        //    }
+        //}
+        public void DisplayWage(string name)
         {
-            for(int i = 0; i < CompanyList.Count; i += 3)
-            {
-                Console.WriteLine("Monthly Wage for {0} with\n Daily Wage = {1} is {2}\n", CompanyList[i], CompanyList[i + 1], CompanyList[i + 2]);
-            }
+            int index = CompanyList.IndexOf(name.ToLower());
+            Console.WriteLine("\nMonthly Wage for {0} with\n Daily Wage = {1} is {2}\n", CompanyList[index], CompanyList[index + 1], CompanyList[index + 2]);
+
         }
     }
 }
